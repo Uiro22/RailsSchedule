@@ -1,0 +1,56 @@
+<h3>スケジュール一覧</h3>
+
+<% if flash[:success] %>
+  <p class="alert_success"><%= flash[:success] %></p>
+<% else flash[:delete] %>
+  <p class="alert_delete"><%= flash[:delete] %></p>
+ <% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日時</th>
+      <th>詳細ページのリンク</th>
+      <th>編集ページのリンク</th>
+      <th>削除リンク</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if @posts.count > 0 %>
+  <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post&.startdate&.strftime("%Y年 %m月 %d日") %></td>
+        <td><%= post&.enddate&.strftime("%Y年 %m月 %d日") %></td>
+        <td>
+        <% if post.allday == true %>
+        <%= "○" %>
+        <% else post.allday == false %>
+        <% end %></td>
+        </td>
+        <td><%= post&.updated_at&.strftime("%Y年 %m月 %d日 %H時 %m分") %></td>
+        <td><%= link_to "詳細ページ", post %></td>
+        <td><%= link_to "編集ページ", [:edit, post] %></td>
+        <td><%= link_to "削除ページ", post, data: {turbo_method: :delete, turbo_confirm: "予定を削除しますか？"} %></td>
+      </tr>
+    <% end %>
+    <% else %> 
+            <td colspan="9">現在登録しているスケジュールはありません</td>
+        <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "スケジュール新規登録", :new_post %></p>
+
+<footer>
+    <h1>現在の日時 : <%= Date.current.strftime("%Y年 %m月 %d日") %></h1>
+    <h1>スケジュール合計 : <%= @posts.count %></h1> 
+</footer>

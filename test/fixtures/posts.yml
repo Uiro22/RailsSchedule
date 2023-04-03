@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  startdate: 2023-04-03 14:45:02
+  enddate: 2023-04-03 14:45:02
+  allday: false
+  memo: MyString
+
+two:
+  title: MyString
+  startdate: 2023-04-03 14:45:02
+  enddate: 2023-04-03 14:45:02
+  allday: false
+  memo: MyString
