@@ -1,0 +1,31 @@
+header, footer {
+    width: 100%;
+    padding: 10px;
+    background: #FF9933;
+    color: #fff;
+    margin: 0px;
+}
+
+table th {
+    background-color: #fbc25b;
+    padding: 10px 20px;
+  }
+  
+table td {
+    background-color: #f9ecd5;
+    padding: 10px 20px;
+  }
+
+h1 {
+    display: block;
+    font-weight: bold;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    display: block;
+}
