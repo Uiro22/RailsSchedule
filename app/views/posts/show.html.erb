@@ -7,11 +7,11 @@
   </tr>
   <tr>
     <th>開始日</th>
-    <td><%= @post.startdate.to_s(:datetime_jp) %></td>
+    <td><%= l @post.startdate, format: :short %></td>
   </tr>
   <tr>
     <th>終了日</th>
-    <td><%= @post.enddate.to_s(:datetime_jp) %></td>
+    <td><%= l @post.enddate, format: :short %></td>
   </tr>
   <tr>
     <th>終日</th>

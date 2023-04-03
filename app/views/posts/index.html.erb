@@ -28,15 +28,14 @@
       <tr>
         <td><%= post.id %></td>
         <td><%= post.title %></td>
-        <td><%= post&.startdate&.strftime("%Y年 %m月 %d日") %></td>
-        <td><%= post&.enddate&.strftime("%Y年 %m月 %d日") %></td>
+        <td><%= l post.startdate, format: :short %></td>
+        <td><%= l post.enddate, format: :short %></td>
         <td>
-        <% if post.allday == true %>
-        <%= "○" %>
-        <% else post.allday == false %>
+        <% if post.allday %>
+            ○
         <% end %></td>
         </td>
-        <td><%= post&.updated_at&.strftime("%Y年 %m月 %d日 %H時 %m分") %></td>
+        <td><%= l post.created_at %></td>
         <td><%= link_to "詳細ページ", post %></td>
         <td><%= link_to "編集ページ", [:edit, post] %></td>
         <td><%= link_to "削除ページ", post, data: {turbo_method: :delete, turbo_confirm: "予定を削除しますか？"} %></td>

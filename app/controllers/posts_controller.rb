@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
 
   def index
-    @page_title = "スケジュール一覧"
     @posts = Post.all
   end
 
   def new
-    @page_title = "スケジュール新規作成"
     @post = Post.new
   end
 
@@ -28,7 +26,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @page_title = "スケジュール詳細"
     @post = Post.find(params[:id])
   end
 
